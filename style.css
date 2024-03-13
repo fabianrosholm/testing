@@ -1,0 +1,355 @@
+:root {
+    --pageMargin: 12px;
+    --easingOut: cubic-bezier(.16, 1, .3, 1);
+    --easing: cubic-bezier(.83, 0, .17, 1);
+    --black: rgb(0, 0, 0);
+    --grey-80: hsla(0, 0%, 16%, 1);
+    --grey-60: hsla(0, 0%, 27%, 1);
+    --grey-50: hsla(0, 0%, 42%, 1);
+    --grey-40: hsla(60, 0%, 60%, 1);
+    --grey-30: hsla(0, 0%, 77%, 1);
+    --grey-20: hsla(0, 0%, 85%, 1);
+    --grey-10: hsla(0, 0%, 92%, 1);
+    --grey-5: hsla(0, 0%, 95%, 1);
+    --white: hsla(0, 0%, 100%, 1);
+    --headerheight: 40px;
+    --bgBlur: 40px;
+    --spacing-4: 4px;
+    --spacing-8: 8px;
+    --spacing-12: 12px;
+    --spacing-16: 16px;
+    --spacing-20: 20px;
+    --spacing-40: 40px;
+    --spacing-60: 60px;
+    --spacing-80: 80px;
+    --spacing-120: 120px;
+}
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+body,h1,h2,h3,h4,p,ul,ol,li,figure,figcaption,blockquote,dl,dd {
+    margin: 0;
+    padding: 0
+}
+
+ul,ol {
+    list-style: none
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--grey-50);
+}
+
+a:active {
+}
+
+.hover-click:active {
+    transform: scale(0.98);
+}
+
+
+img,picture,video,canvas,svg {
+    display: block;
+    max-width: 100%
+}
+
+input,button,textarea,select {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+button:hover {
+    cursor: pointer;
+    background: var(--page-button-hover);
+}
+
+button:active {
+    background: var(--page-button-active);
+    transform: scale(0.98);
+}
+
+@font-face {
+    font-family: Roboto Mono;
+    src: url(fonts/RobotoMono-Regular.ttf);
+    font-style: normal;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 31px;
+    line-height: 110%;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: -0.67px;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 49px;
+        line-height: 110%;
+        letter-spacing: -1.09px;
+    }
+}
+
+h2 {
+    font-size: 16px;
+    line-height: 150%;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: -0.18px;
+    color: var(--grey-40);
+}
+
+h3 {
+    font-size: 16px;
+    line-height: 150%;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: -0.18px;
+    color: var(--page-text);
+}
+
+.big-paragraph {
+    font-size: 25px;
+    line-height: 120%;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: -0.33px;
+    color: var(--page-text);
+}
+
+@media (min-width: 768px) {
+    .big-paragraph {
+        font-size: 31px;
+        line-height: 120%;
+    }
+}
+
+.btn {
+    display: block;
+    padding: 8px 12px;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 100px;
+    background-color: var(--grey-40);
+    color: var(--white);
+    transition: background-color 0.2s ease;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: -0.04px;
+    text-align: center;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.pill {
+    display: block;
+    width: fit-content;
+    padding: 8px 12px;
+    outline: 0;
+    border-radius: 100px;
+    background-color: var(--grey-10);
+    color: var(--page-text);
+    transition: background-color 0.2s ease;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: -0.04px;
+    text-align: center;
+    text-decoration: none;
+}
+
+body {
+    --page-bg: var(--black);
+    --page-text: var(--white);
+    --page-border: var(--grey-10);
+    --page-button-default: var(--grey-40);
+    --page-button-hover: var(--grey-50);
+    --page-button-active: var(--grey-60);
+    --page-card: var(--grey-5);
+    --page-card-hover: var(--grey-20);
+    --page-text-2: var(--grey-40);
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: -.18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: Roboto Mono;
+    text-transform: uppercase;
+    background-color: var(--page-bg);
+    color: var(--page-text);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.color-secondary {
+    color: var(--page-text-2)
+}
+
+
+header {
+    z-index: 200;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--page-bg);
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 1px;
+    background-color: var(--page-bg);
+    flex-direction: column;
+    font-size: 13px;
+    letter-spacing: 0;
+    line-height: 100%;
+}
+
+.b-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    width: 100%;
+}
+
+.s-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    width: 100%;
+}
+
+.nav-btn-b {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1D1D1D;
+    width: 100%;
+    height: 52px;
+    color: #CCCCCC;
+
+}
+
+#copyEmail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1D1D1D;
+    width: 100%;
+    height: 52px;
+    color: #CCCCCC;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+#copyEmail.clicked {
+    background-color: #ffffff; /* Temporary color */
+    color: #000000;
+   }
+
+.nav-btn-s {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1D1D1D;
+    width: 100%;
+    height: 52px;
+    color: #CCCCCC;
+}
+
+.active {
+    background-color: #151515;
+    color: #EEEEEE;
+}
+
+.copy-email {
+
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,1) 100%);
+    z-index: 100;
+}
+
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 17.5vh;
+}
+
+.text-div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    max-width: 90%;
+}
+
+
+.intro {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    padding: 0 var(--pageMargin);
+}
+
+.intro-text {
+
+}
+
+.pill-btn {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.image-container {
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: attr(width) / attr(height);
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    padding: 0 var(--pageMargin);
+}
